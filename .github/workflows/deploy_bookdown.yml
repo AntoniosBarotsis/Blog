@@ -25,7 +25,9 @@ jobs:
       - name: Install rmarkdown
         run: Rscript -e 'install.packages(c("rmarkdown","blogdown"))'
       - name: Install used packages
-        run: Rscript -e 'install.packages(c("tidytuesdayR", "tidyverse", "tidymodels", "ggthemr", "ggridges", "lubridate", "plotly", "ranger", "kernlab"))'
+        run: Rscript -e '
+        install.packages(c("devtools", "tidytuesdayR", "tidyverse", "tidymodels", "ggridges", "lubridate", "plotly", "ranger", "kernlab"))
+        devtools::install_github('Mikata-Project/ggthemr')'
       - name: Render Book
         run: Rscript -e 'blogdown::build_site(local = FALSE, run_hugo = TRUE, build_rmd = TRUE)'
 
