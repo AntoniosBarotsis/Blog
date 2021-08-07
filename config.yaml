@@ -1,0 +1,132 @@
+baseURL: https://antoniosbarotsis.github.io/Blog/
+languageCode: en-us
+title: My Blog
+theme: "PaperMod"
+paginate: 5
+googleAnalytics: G-XT800TX28M
+
+minify:
+    disableXML: true
+    minifyOutput: true
+
+markup:
+    highlight:
+        # anchorLineNos: true
+        codeFences: true
+        guessSyntax: true
+        # lineNos: true
+        # noClasses: false
+        pygmentsUseClasses: true
+        style: dracula
+
+
+params:
+    env: production # to enable google analytics, opengraph, twitter-cards and schema.
+    description: "Theme PaperMod - https://github.com/adityatelange/hugo-PaperMod"
+    author: Theme PaperMod
+    # author: ["Me", "You"] # multiple authors
+
+    defaultTheme: auto
+    # disableThemeToggle: true
+    ShowShareButtons: true
+    ShowReadingTime: true
+    # disableSpecial1stPost: true
+    displayFullLangName: true
+    ShowPostNavLinks: true
+    ShowBreadCrumbs: true
+    ShowCodeCopyButtons: true
+    ShowToc: true
+    # comments: false
+    images: ["papermod-cover.png"]
+
+    homeInfoParams:
+        Title: "Antonios Barotsis"
+        Content: >
+            Welcome to my blog!
+            I will use this to post articles I write in the future about Computer Science. 
+            For now I will be using this to post my analyses on [TidyTuesday](https://github.com/rfordatascience/tidytuesday) datasets in R.
+            You can find the code for this repository [here](https://github.com/AntoniosBarotsis/Blog),
+            feel free to open an issues with suggestions or corrections!
+
+    socialIcons:
+        - name: github
+          url: "https://github.com/AntoniosBarotsis"
+        - name: twitter
+          url: "https://twitter.com/Tony_Barotsis"
+        # - name: KoFi
+        #   url: "https://ko-fi.com/adityatelange"
+        # - name: RsS
+        #   url: "index.xml"
+
+    editPost:
+        URL: "https://github.com/AntoniosBarotsis/Blog/tree/master/content"
+        Text: "Suggest Changes" # edit text
+        appendFilePath: true # to append file path to Edit link
+
+    fuseOpts:
+        isCaseSensitive: false
+        shouldSort: true
+        location: 0
+        distance: 1000
+        threshold: 0.4
+        minMatchCharLength: 0
+        keys: ["title", "permalink", "summary", "content"]
+
+    # label:
+    #     text: "Home"
+    #     icon: icon.png
+    #     iconHeight: 35
+
+    # analytics:
+    #     google:
+    #         SiteVerificationTag: "XYZabc"
+
+    # assets:
+    #     favicon: "<link / abs url>"
+    #     favicon16x16: "<link / abs url>"
+    #     favicon32x32: "<link / abs url>"
+    #     apple_touch_icon: "<link / abs url>"
+    #     safari_pinned_tab: "<link / abs url>"
+
+    # cover:
+    #     hidden: true # hide everywhere but not in structured data
+    #     hiddenInList: true # hide on list pages and home
+    #     hiddenInSingle: true # hide on single page
+
+    # fuseOpts:
+    #     isCaseSensitive: false
+    #     shouldSort: true
+    #     location: 0
+    #     distance: 1000
+    #     threshold: 0.4
+    #     minMatchCharLength: 0
+    #     keys: ["title", "permalink", "summary", "content"]
+menu:
+    main:
+        - identifier: search
+          name: Search
+          url: search/
+          weight: 1
+        - identifier: categories
+          name: Categories
+          url: /categories/
+          weight: 2
+        - identifier: tags
+          name: Tags
+          url: /tags/
+          weight: 3
+        # - identifier: example
+        #   name: example.org
+        #   url: https://example.org
+        #   weight: 30
+
+outputs:
+    home:
+        - HTML
+        - RSS
+        - JSON
+
+taxonomies:
+    search: search
+    category: Categories
+    tag: Tags
