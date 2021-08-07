@@ -24,10 +24,10 @@ jobs:
       - uses: r-lib/actions/setup-pandoc@v1
       - name: Install rmarkdown
         run: Rscript -e 'install.packages(c("rmarkdown","blogdown"))'
-      - name: Install used packages
-        run: Rscript -e '
-        install.packages(c("devtools", "tidytuesdayR", "tidyverse", "tidymodels", "ggridges", "lubridate", "plotly", "ranger", "kernlab"))
-        devtools::install_github('Mikata-Project/ggthemr')'
+      - name: Install used packages CRAN
+        run: Rscript -e 'install.packages(c("devtools", "tidytuesdayR", "tidyverse", "tidymodels", "ggridges", "lubridate", "plotly", "ranger", "kernlab"))'
+      - name: Install used packages Github
+        run: Rscript -e 'devtools::install_github("Mikata-Project/ggthemr")'
       - name: Render Book
         run: Rscript -e 'blogdown::build_site(local = FALSE, run_hugo = TRUE, build_rmd = TRUE)'
 
