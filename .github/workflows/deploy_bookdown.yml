@@ -27,7 +27,7 @@ jobs:
       - name: Install used packages CRAN
         run: Rscript -e 'install.packages(c("devtools", "tidytuesdayR", "tidyverse", "tidymodels", "ggridges", "lubridate", "plotly", "ranger", "kernlab"))'
       - name: Install used packages Github
-        run: Rscript -e 'devtools::install_github("Mikata-Project/ggthemr")'
+        run: Rscript -e 'devtools::install_github("Mikata-Project/ggthemr", auth_token = "${{ secrets.PAT }}")'
       - name: Render Book
         run: Rscript -e 'blogdown::build_site(local = FALSE, run_hugo = TRUE, build_rmd = TRUE)'
 
