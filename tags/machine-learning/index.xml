@@ -13,10 +13,10 @@
     <lastBuildDate>Sun, 01 Aug 2021 20:10:48 +0200</lastBuildDate><atom:link href="https://antoniosbarotsis.github.io/Blog/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Netflix Titles</title>
-      <link>https://antoniosbarotsis.github.io/Blog/posts/tidytuesday/netflix_titles/</link>
+      <link>https://antoniosbarotsis.github.io/Blog/posts/tidy_tuesday/netflix_titles/</link>
       <pubDate>Sun, 01 Aug 2021 20:10:48 +0200</pubDate>
       
-      <guid>https://antoniosbarotsis.github.io/Blog/posts/tidytuesday/netflix_titles/</guid>
+      <guid>https://antoniosbarotsis.github.io/Blog/posts/tidy_tuesday/netflix_titles/</guid>
       <description>Exploring the &amp;#34;Netflix Movies and TV Shows&amp;#34; Kaggle dataset</description>
     </item>
     
