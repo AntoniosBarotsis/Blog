@@ -3,7 +3,6 @@ languageCode: en-us
 title: My Blog
 theme: "PaperMod"
 paginate: 5
-googleAnalytics: G-XT800TX28M
 
 minify:
     disableXML: true
