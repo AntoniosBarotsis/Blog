@@ -86,7 +86,7 @@ ggplotly(
 <br />
 
 From the plot above we can see that although movies greatly outnumber TV Shows
-as of now, they have drastically slown down their increase and even started
+as of now, they have drastically slowed down their increase and even started
 decreasing by 2020 unlike TV Shows that are still growing exponentially in the
 last 5 years. It is worth noting that this dataset was mined before the end of
 2020 which means that the values from that year may be underrepresented. Despite
@@ -318,7 +318,7 @@ ggplotly(
 ```
 <br />
 
-I was actually fairly surprised to see the top ratings being adult rated
+I was actually fairly surprised to see that adult ratings are that popular.
 
 ```{r}
 ggplotly(
@@ -341,7 +341,7 @@ We can see the same information plotted differently here.
 
 After some trial and error, I decided to try and model the `duration` using
 `release_year` and `listed_in`. I changed `release_year` to start from
-the smallest year in the dataset and I applied one hot encoding `listed_in` to
+the smallest year in the dataset and I applied one hot encoding to `listed_in`.
 Since there are way less movies under 3 hours, I want my model
 to be able to pick up almost all of them; I want to keep false negatives
 as low as possible so as to make the model more sensitive. The model yields
