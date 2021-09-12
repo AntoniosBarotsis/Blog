@@ -52,6 +52,8 @@ params:
           url: "https://github.com/AntoniosBarotsis"
         - name: twitter
           url: "https://twitter.com/Tony_Barotsis"
+        - name: linkedin
+          url: "https://www.linkedin.com/in/antonios-barotsis-5a26a0199/"
         # - name: KoFi
         #   url: "https://ko-fi.com/adityatelange"
         # - name: RsS
@@ -104,7 +106,7 @@ menu:
     main:
         - identifier: search
           name: Search
-          url: search/
+          url: /search/
           weight: 1
         - identifier: categories
           name: Categories
