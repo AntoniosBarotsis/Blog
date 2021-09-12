@@ -31,6 +31,9 @@ jobs:
       - name: Render Book
         run: Rscript -e 'blogdown::build_site(local = FALSE, run_hugo = TRUE, build_rmd = TRUE)'
 
+      - name : ls
+        run: ls public
+        
       - name: Build
         run: hugo --minify
 
@@ -41,4 +44,3 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
           publish_dir: ./public
-          exclude_assets: '/public/search/index.html'
