@@ -31,11 +31,14 @@ jobs:
       - name: Render Book
         run: Rscript -e 'blogdown::build_site(local = FALSE, run_hugo = TRUE, build_rmd = TRUE)'
 
-      - name : ls
-        run: ls public
-        
+      - name : Move hardcoded search file
+        run: mv public/search .
+
       - name: Build
         run: hugo --minify
+
+      - name: Replace search file
+        run: rm -rf public/search && mv search public && cat public/search/index.html
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
