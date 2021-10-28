@@ -16,10 +16,17 @@ markup:
         # lineNos: true
         # noClasses: false
         pygmentsUseClasses: true
-        style: dracula
+        pygmentsCodefences: true
+        style: monokai
+    goldmark:
+        renderer:
+             unsafe: true
+
 
 
 params:
+    assets:
+        disableHLJS: true
     env: production # to enable google analytics, opengraph, twitter-cards and schema.
     description: "Theme PaperMod - https://github.com/adityatelange/hugo-PaperMod"
     author: Theme PaperMod
