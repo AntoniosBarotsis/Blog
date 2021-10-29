@@ -6,6 +6,8 @@ description: "Exploring the \"Netflix Movies and TV Shows\" Kaggle dataset"
 tags: ["R", "Data", "Plot", "Machine Learning"]
 categories: ["TidyTuesday"]
 ShowToc: false
+cover:
+    image: "images/netflix.png"
 ---
 
 
