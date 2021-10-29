@@ -6,6 +6,8 @@ description: "Integrating the ELK stack with C#"
 tags: ["Csharp", "Elasticsearch", "Kibana", "Monitoring"]
 categories: ["Csharp"]
 draft: false
+cover:
+    image: "images/elastic.png"
 ---
 
 # What is the ELK stack?
