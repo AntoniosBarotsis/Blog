@@ -1,7 +1,10 @@
 ---
 title: "Testing an ASP .NET Core project"
 date: 2021-10-29T16:12:35+02:00
-draft: true
+draft: false
+description: "Tests and automated coverage reports with .NET and Github actions"
+tags: ["Csharp", "CI", "Testing", "Github Actions"]
+categories: ["Csharp"]
 cover:
   image: "images/x.png"
 ---
@@ -12,7 +15,8 @@ Most Web API templates I could find online do not have testing pre configured in
 that I would make a post about setting up basic unit tests as well as mocking dependencies.
 
 I will be using [XUnit](https://xunit.net/) which is one of the most used testing frameworks for .NET as well as
-[FakeItEasy](https://fakeiteasy.github.io/) for mocking.
+[FakeItEasy](https://fakeiteasy.github.io/) for mocking. In the end I will also use [Coverlet](https://dotnetfoundation.org/projects/coverlet)
+and [Codecov](https://about.codecov.io/) for coverage reports.
 
 The API will be the weather forecast template with the addition of a service layer which is what we will be testing. Let's get started!
 
@@ -210,4 +214,99 @@ of the method in question. I am using `Task.FromResult` because the method is as
 we successfully changed the "implementation" of our dependency. Again, this is what would normally be a repository and a database call changed to
 hard coded data, similar to what would be returned from said database call.
 
-<!-- TODO: Add codedoc -->
+## Adding a CI pipeline with Codecov
+
+Another thing we could do is add Codecov to get a detailed view of our test coverage. The best way to do that in my
+opinion is to create a Continuous Integration (CI) pipeline on Github that will generate and push code coverage information everytime we update
+the repository.
+
+First go to Codecov's website and create an account. Get your `CODECOV_TOKEN` and create a repository secret with its value on your github
+repository, we will be using this later when we push our data to Codecov.
+
+We also need to create a `codecov.yml` file with some basic configuration. Here's what I had from a previous project:
+
+```yml
+# codecov.yml
+comment: false
+
+ignore:
+  - "^(?!.*Services).*$"
+
+coverage:
+  status:
+    project:
+      default:
+        target: auto
+        threshold: 1%
+        informational: true
+    patch:
+      default:
+        target: auto
+        threshold: 1%
+        informational: true
+```
+
+The only interesting thing about this is that I ignored every folder that does not include `Services` since that's the only thing we tested.
+
+Let's create the `.github/workflows/dotnet.yml` file and use the Github Actions template for .NET apps which includes building and testing.
+We only have to add one more step for codecov to work:
+
+```yml
+# dotnet.yml
+name: .NET
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --no-restore
+    - name: Test
+      run: dotnet test --no-build --verbosity normal --collect:"XPlat Code Coverage" -- IncludeDirectory="[.]*Services[.]*"
+    - name: Codecov
+      uses: codecov/codecov-action@v2
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+```
+
+The [Codecov action](https://github.com/codecov/codecov-action) offers a few useful parameters for you to use so if you are interested,
+read their docs!
+
+With all this done and pushed you just want to wait for the Action to complete. After that's done I can take a look at my coverage
+
+![codecov](images/codecov.png#center)
+
+This is very useful to look at when dealing when *more than one directory unlike here*.
+
+You can also take a look at the exact spots in your code that you tested/missed
+
+![code](images/code.png#center)
+
+And finally (but certainly most importantly), codecov gives you a badge to display on your Github repo to show everyone how well tested your code
+is. What's the point of testing if you don't let everyone know you did after all?
+
+# Conclusion
+
+Testing is basically essential to any application that is not yet another personal project doomed to be abandoned a few weeks after its inception.
+If you decide to test your project I do not see why you wouldn't include coverage reports, whether automated or not. Codecov (and other similar tools)
+allow you to set a lot of rules that would fail your pipeline if not met such as: minimum coverage, a minimum threshold of allowed coverage drop on new
+commits and a lot more.
+
+I hope you got something out of this post and thanks for reading! :)
+
+You can find the code [here](https://github.com/AntoniosBarotsis/TestingAPI).
