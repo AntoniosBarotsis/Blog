@@ -2,16 +2,40 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://antoniosbarotsis.github.io/Blog/tags/c#/</loc>
+    <lastmod>2021-10-28T22:04:54+02:00</lastmod>
+  </url><url>
+    <loc>https://antoniosbarotsis.github.io/Blog/categories/c#/</loc>
+    <lastmod>2021-10-28T22:04:54+02:00</lastmod>
+  </url><url>
+    <loc>https://antoniosbarotsis.github.io/Blog/posts/cs_elk/</loc>
+    <lastmod>2021-10-28T22:04:54+02:00</lastmod>
+  </url><url>
     <loc>https://antoniosbarotsis.github.io/Blog/categories/</loc>
-    <lastmod>2021-08-01T20:10:48+02:00</lastmod>
+    <lastmod>2021-10-28T22:04:54+02:00</lastmod>
+  </url><url>
+    <loc>https://antoniosbarotsis.github.io/Blog/tags/elasticsearch/</loc>
+    <lastmod>2021-10-28T22:04:54+02:00</lastmod>
+  </url><url>
+    <loc>https://antoniosbarotsis.github.io/Blog/tags/kibana/</loc>
+    <lastmod>2021-10-28T22:04:54+02:00</lastmod>
+  </url><url>
+    <loc>https://antoniosbarotsis.github.io/Blog/tags/monitoring/</loc>
+    <lastmod>2021-10-28T22:04:54+02:00</lastmod>
+  </url><url>
+    <loc>https://antoniosbarotsis.github.io/Blog/</loc>
+    <lastmod>2021-10-28T22:04:54+02:00</lastmod>
+  </url><url>
+    <loc>https://antoniosbarotsis.github.io/Blog/posts/</loc>
+    <lastmod>2021-10-28T22:04:54+02:00</lastmod>
+  </url><url>
+    <loc>https://antoniosbarotsis.github.io/Blog/tags/</loc>
+    <lastmod>2021-10-28T22:04:54+02:00</lastmod>
   </url><url>
     <loc>https://antoniosbarotsis.github.io/Blog/tags/data/</loc>
     <lastmod>2021-08-01T20:10:48+02:00</lastmod>
   </url><url>
     <loc>https://antoniosbarotsis.github.io/Blog/tags/machine-learning/</loc>
-    <lastmod>2021-08-01T20:10:48+02:00</lastmod>
-  </url><url>
-    <loc>https://antoniosbarotsis.github.io/Blog/</loc>
     <lastmod>2021-08-01T20:10:48+02:00</lastmod>
   </url><url>
     <loc>https://antoniosbarotsis.github.io/Blog/posts/tidy_tuesday/netflix_titles/</loc>
@@ -20,13 +44,7 @@
     <loc>https://antoniosbarotsis.github.io/Blog/tags/plot/</loc>
     <lastmod>2021-08-01T20:10:48+02:00</lastmod>
   </url><url>
-    <loc>https://antoniosbarotsis.github.io/Blog/posts/</loc>
-    <lastmod>2021-08-01T20:10:48+02:00</lastmod>
-  </url><url>
     <loc>https://antoniosbarotsis.github.io/Blog/tags/r/</loc>
-    <lastmod>2021-08-01T20:10:48+02:00</lastmod>
-  </url><url>
-    <loc>https://antoniosbarotsis.github.io/Blog/tags/</loc>
     <lastmod>2021-08-01T20:10:48+02:00</lastmod>
   </url><url>
     <loc>https://antoniosbarotsis.github.io/Blog/categories/tidytuesday/</loc>
