@@ -3,8 +3,8 @@ author: "Antonios Barotsis"
 title: "C# and the ELK stack"
 date: 2021-10-28T22:04:54+02:00
 description: "Integrating the ELK stack with C#"
-tags: ["C#", "Elasticsearch", "Kibana", "Monitoring"]
-categories: ["C#"]
+tags: ["Csharp", "Elasticsearch", "Kibana", "Monitoring"]
+categories: ["Csharp"]
 draft: false
 ---
 
