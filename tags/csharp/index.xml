@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>C# on My Blog</title>
-    <link>https://antoniosbarotsis.github.io/Blog/tags/c#/</link>
-    <description>Recent content in C# on My Blog</description>
+    <title>Csharp on My Blog</title>
+    <link>https://antoniosbarotsis.github.io/Blog/tags/csharp/</link>
+    <description>Recent content in Csharp on My Blog</description>
     <image>
       <url>https://antoniosbarotsis.github.io/Blog/papermod-cover.png</url>
       <link>https://antoniosbarotsis.github.io/Blog/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 28 Oct 2021 22:04:54 +0200</lastBuildDate><atom:link href="https://antoniosbarotsis.github.io/Blog/tags/c#/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 28 Oct 2021 22:04:54 +0200</lastBuildDate><atom:link href="https://antoniosbarotsis.github.io/Blog/tags/csharp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>C# and the ELK stack</title>
       <link>https://antoniosbarotsis.github.io/Blog/posts/cs_elk/</link>
