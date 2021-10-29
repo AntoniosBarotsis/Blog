@@ -10,7 +10,7 @@ using the [Papermod](https://github.com/adityatelange/hugo-PaperMod) theme.
 If you want to run the blog locally **without** making changes to the `.Rmd` files you can do so with:
 
 ```bash
-hugo run
+hugo serve --buildDrafts
 ```
 
 If you don't have `hugo` installed, check [this](https://gohugo.io/getting-started/installing).
