@@ -49,8 +49,7 @@ params:
         Title: "Antonios Barotsis"
         Content: >
             Welcome to my blog!
-            I will use this to post articles I write in the future about Computer Science. 
-            For now I will be using this to post my analyses on [TidyTuesday](https://github.com/rfordatascience/tidytuesday) datasets in R.
+            I will use this to post articles I write about programming. 
             You can find the code for this repository [here](https://github.com/AntoniosBarotsis/Blog),
             feel free to open an issues with suggestions or corrections!
 
