@@ -28,12 +28,12 @@ params:
     assets:
         disableHLJS: true
     env: production # to enable google analytics, opengraph, twitter-cards and schema.
-    description: "Theme PaperMod - https://github.com/adityatelange/hugo-PaperMod"
-    author: Theme PaperMod
+    description: "Welcome to my programming Blog!"
+    author: Antonios Barotsis
     # author: ["Me", "You"] # multiple authors
 
-    defaultTheme: auto
-    disableThemeToggle: true
+    defaultTheme: dark
+    disableThemeToggle: false
     ShowShareButtons: true
     ShowReadingTime: true
     # disableSpecial1stPost: true
