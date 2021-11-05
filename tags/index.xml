@@ -10,7 +10,16 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 29 Oct 2021 16:12:35 +0200</lastBuildDate><atom:link href="https://antoniosbarotsis.github.io/Blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 05 Nov 2021 17:20:51 +0100</lastBuildDate><atom:link href="https://antoniosbarotsis.github.io/Blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Project Demeter</title>
+      <link>https://antoniosbarotsis.github.io/Blog/tags/project-demeter/</link>
+      <pubDate>Fri, 05 Nov 2021 17:20:51 +0100</pubDate>
+      
+      <guid>https://antoniosbarotsis.github.io/Blog/tags/project-demeter/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>CI</title>
       <link>https://antoniosbarotsis.github.io/Blog/tags/ci/</link>
@@ -53,6 +62,15 @@
       <pubDate>Thu, 28 Oct 2021 22:04:54 +0200</pubDate>
       
       <guid>https://antoniosbarotsis.github.io/Blog/tags/elasticsearch/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ELK</title>
+      <link>https://antoniosbarotsis.github.io/Blog/tags/elk/</link>
+      <pubDate>Thu, 28 Oct 2021 22:04:54 +0200</pubDate>
+      
+      <guid>https://antoniosbarotsis.github.io/Blog/tags/elk/</guid>
       <description></description>
     </item>
     

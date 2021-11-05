@@ -10,7 +10,16 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 29 Oct 2021 16:12:35 +0200</lastBuildDate><atom:link href="https://antoniosbarotsis.github.io/Blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 05 Nov 2021 17:20:51 +0100</lastBuildDate><atom:link href="https://antoniosbarotsis.github.io/Blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Project Demeter: Part 0</title>
+      <link>https://antoniosbarotsis.github.io/Blog/posts/demeter/part_0/</link>
+      <pubDate>Fri, 05 Nov 2021 17:20:51 +0100</pubDate>
+      
+      <guid>https://antoniosbarotsis.github.io/Blog/posts/demeter/part_0/</guid>
+      <description>The beginning of my new project.</description>
+    </item>
+    
     <item>
       <title>Testing an ASP .NET Core project</title>
       <link>https://antoniosbarotsis.github.io/Blog/posts/aspnet_testing/</link>
