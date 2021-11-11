@@ -10,7 +10,16 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 05 Nov 2021 17:20:51 +0100</lastBuildDate><atom:link href="https://antoniosbarotsis.github.io/Blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 11 Nov 2021 16:37:08 +0100</lastBuildDate><atom:link href="https://antoniosbarotsis.github.io/Blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Project Demeter: Part 1</title>
+      <link>https://antoniosbarotsis.github.io/Blog/posts/demeter/part_1/</link>
+      <pubDate>Thu, 11 Nov 2021 16:37:08 +0100</pubDate>
+      
+      <guid>https://antoniosbarotsis.github.io/Blog/posts/demeter/part_1/</guid>
+      <description>The early stages</description>
+    </item>
+    
     <item>
       <title>Project Demeter: Part 0</title>
       <link>https://antoniosbarotsis.github.io/Blog/posts/demeter/part_0/</link>
