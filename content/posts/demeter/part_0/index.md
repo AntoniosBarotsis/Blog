@@ -3,7 +3,7 @@ author: "Antonios Barotsis"
 title: "Project Demeter: Part 0"
 description: "The beginning of my new project."
 tags: ["Project Demeter"]
-categories: ["No Code"]
+categories: ["No Code", "Project Demeter"]
 # cover:
 #     image: "images/elastic.png"
 date: 2021-11-05T17:20:51+01:00
