@@ -66,6 +66,18 @@
 </header>
 <article class="post-entry tag-entry">
 <header class=entry-header>
+<h2>Project Demeter: Part 2</h2>
+</header>
+<section class=entry-content>
+<p>It’s been sometime since my last post but I just now got to work on the project again.
+Progress since last time The bulk of the additions since last time concern authentication;
+Added Login and Refresh endpoints. I’m not sure if the concept of refresh tokens were there last time but they are there now. The idea is that you have the normal JSON Web Token which expires 10 minutes after you create it (reminder to self to check if I handle timezones properly at some point) but the user also gets a refresh token on login which expires 6 months later, this way whatever client interacts with the app won’t have to ask the user for his credentials since it can just keep using and refreshing the token....</p>
+</section>
+<footer class=entry-footer>December 24, 2021&nbsp;·&nbsp;6 min&nbsp;·&nbsp;Antonios Barotsis</footer>
+<a class=entry-link aria-label="post link to Project Demeter: Part 2" href=https://antoniosbarotsis.github.io/Blog/posts/demeter/part_2/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
 <h2>Project Demeter: Part 1</h2>
 </header>
 <section class=entry-content>
