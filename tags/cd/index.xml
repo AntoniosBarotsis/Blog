@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Github Actions on My Blog</title>
-    <link>https://antoniosbarotsis.github.io/Blog/tags/github-actions/</link>
-    <description>Recent content in Github Actions on My Blog</description>
+    <title>CD on My Blog</title>
+    <link>https://antoniosbarotsis.github.io/Blog/tags/cd/</link>
+    <description>Recent content in CD on My Blog</description>
     <image>
       <url>https://antoniosbarotsis.github.io/Blog/papermod-cover.png</url>
       <link>https://antoniosbarotsis.github.io/Blog/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 01 Feb 2022 19:05:19 +0200</lastBuildDate><atom:link href="https://antoniosbarotsis.github.io/Blog/tags/github-actions/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 01 Feb 2022 19:05:19 +0200</lastBuildDate><atom:link href="https://antoniosbarotsis.github.io/Blog/tags/cd/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Zip it and ship it!</title>
       <link>https://antoniosbarotsis.github.io/Blog/posts/zipitandshipit/</link>
@@ -18,15 +18,6 @@
       
       <guid>https://antoniosbarotsis.github.io/Blog/posts/zipitandshipit/</guid>
       <description>How I published a CLI tool in Chocolatey and Nuget.</description>
-    </item>
-    
-    <item>
-      <title>Testing an ASP .NET Core project</title>
-      <link>https://antoniosbarotsis.github.io/Blog/posts/aspnet_testing/</link>
-      <pubDate>Fri, 29 Oct 2021 16:12:35 +0200</pubDate>
-      
-      <guid>https://antoniosbarotsis.github.io/Blog/posts/aspnet_testing/</guid>
-      <description>Tests and automated coverage reports with .NET and Github actions</description>
     </item>
     
   </channel>

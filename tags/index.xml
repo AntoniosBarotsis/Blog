@@ -10,7 +10,34 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 24 Dec 2021 08:59:03 +0200</lastBuildDate><atom:link href="https://antoniosbarotsis.github.io/Blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 01 Feb 2022 19:05:19 +0200</lastBuildDate><atom:link href="https://antoniosbarotsis.github.io/Blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CD</title>
+      <link>https://antoniosbarotsis.github.io/Blog/tags/cd/</link>
+      <pubDate>Tue, 01 Feb 2022 19:05:19 +0200</pubDate>
+      
+      <guid>https://antoniosbarotsis.github.io/Blog/tags/cd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Deployment</title>
+      <link>https://antoniosbarotsis.github.io/Blog/tags/deployment/</link>
+      <pubDate>Tue, 01 Feb 2022 19:05:19 +0200</pubDate>
+      
+      <guid>https://antoniosbarotsis.github.io/Blog/tags/deployment/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Github Actions</title>
+      <link>https://antoniosbarotsis.github.io/Blog/tags/github-actions/</link>
+      <pubDate>Tue, 01 Feb 2022 19:05:19 +0200</pubDate>
+      
+      <guid>https://antoniosbarotsis.github.io/Blog/tags/github-actions/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Project Demeter</title>
       <link>https://antoniosbarotsis.github.io/Blog/tags/project-demeter/</link>
@@ -35,15 +62,6 @@
       <pubDate>Fri, 29 Oct 2021 16:12:35 +0200</pubDate>
       
       <guid>https://antoniosbarotsis.github.io/Blog/tags/csharp/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Github Actions</title>
-      <link>https://antoniosbarotsis.github.io/Blog/tags/github-actions/</link>
-      <pubDate>Fri, 29 Oct 2021 16:12:35 +0200</pubDate>
-      
-      <guid>https://antoniosbarotsis.github.io/Blog/tags/github-actions/</guid>
       <description></description>
     </item>
     
