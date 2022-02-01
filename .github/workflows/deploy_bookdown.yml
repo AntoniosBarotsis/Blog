@@ -24,8 +24,10 @@ jobs:
       - uses: r-lib/actions/setup-pandoc@v1
       - name: Install rmarkdown
         run: Rscript -e 'install.packages(c("rmarkdown","blogdown"))'
+      - name: Install tidytuesdayR
+        run: Rscript -e 'install.packages("tidytuesdayR", version = "1.0.1")'
       - name: Install used packages CRAN
-        run: Rscript -e 'install.packages(c("devtools", "tidytuesdayR@1.0.1", "tidyverse", "tidymodels", "ggridges", "lubridate", "plotly", "ranger", "kernlab"))'
+        run: Rscript -e 'install.packages(c("devtools", "tidyverse", "tidymodels", "ggridges", "lubridate", "plotly", "ranger", "kernlab"))'
       - name: Install used packages Github
         run: Rscript -e 'devtools::install_github("Mikata-Project/ggthemr", auth_token = "${{ secrets.PAT }}")'
       - name : Move hardcoded search file
