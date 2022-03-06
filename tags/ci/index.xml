@@ -10,7 +10,16 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 29 Oct 2021 16:12:35 +0200</lastBuildDate><atom:link href="https://antoniosbarotsis.github.io/Blog/tags/ci/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 06 Mar 2022 22:29:48 +0100</lastBuildDate><atom:link href="https://antoniosbarotsis.github.io/Blog/tags/ci/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Veritas</title>
+      <link>https://antoniosbarotsis.github.io/Blog/posts/posharp/</link>
+      <pubDate>Sun, 06 Mar 2022 22:29:48 +0100</pubDate>
+      
+      <guid>https://antoniosbarotsis.github.io/Blog/posts/posharp/</guid>
+      <description>My attempt at a testing framework</description>
+    </item>
+    
     <item>
       <title>Testing an ASP .NET Core project</title>
       <link>https://antoniosbarotsis.github.io/Blog/posts/aspnet_testing/</link>
