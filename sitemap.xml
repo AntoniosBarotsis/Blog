@@ -3,7 +3,31 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://antoniosbarotsis.github.io/Blog/categories/</loc>
-    <lastmod>2022-02-01T19:05:19+02:00</lastmod>
+    <lastmod>2022-03-06T22:29:48+01:00</lastmod>
+  </url><url>
+    <loc>https://antoniosbarotsis.github.io/Blog/categories/ci/</loc>
+    <lastmod>2022-03-06T22:29:48+01:00</lastmod>
+  </url><url>
+    <loc>https://antoniosbarotsis.github.io/Blog/categories/github-actions/</loc>
+    <lastmod>2022-03-06T22:29:48+01:00</lastmod>
+  </url><url>
+    <loc>https://antoniosbarotsis.github.io/Blog/</loc>
+    <lastmod>2022-03-06T22:29:48+01:00</lastmod>
+  </url><url>
+    <loc>https://antoniosbarotsis.github.io/Blog/posts/</loc>
+    <lastmod>2022-03-06T22:29:48+01:00</lastmod>
+  </url><url>
+    <loc>https://antoniosbarotsis.github.io/Blog/categories/scala/</loc>
+    <lastmod>2022-03-06T22:29:48+01:00</lastmod>
+  </url><url>
+    <loc>https://antoniosbarotsis.github.io/Blog/tags/</loc>
+    <lastmod>2022-03-06T22:29:48+01:00</lastmod>
+  </url><url>
+    <loc>https://antoniosbarotsis.github.io/Blog/tags/veritas/</loc>
+    <lastmod>2022-03-06T22:29:48+01:00</lastmod>
+  </url><url>
+    <loc>https://antoniosbarotsis.github.io/Blog/posts/posharp/</loc>
+    <lastmod>2022-03-06T22:29:48+01:00</lastmod>
   </url><url>
     <loc>https://antoniosbarotsis.github.io/Blog/tags/cd/</loc>
     <lastmod>2022-02-01T19:05:19+02:00</lastmod>
@@ -14,16 +38,7 @@
     <loc>https://antoniosbarotsis.github.io/Blog/tags/github-actions/</loc>
     <lastmod>2022-02-01T19:05:19+02:00</lastmod>
   </url><url>
-    <loc>https://antoniosbarotsis.github.io/Blog/</loc>
-    <lastmod>2022-02-01T19:05:19+02:00</lastmod>
-  </url><url>
     <loc>https://antoniosbarotsis.github.io/Blog/categories/no-code/</loc>
-    <lastmod>2022-02-01T19:05:19+02:00</lastmod>
-  </url><url>
-    <loc>https://antoniosbarotsis.github.io/Blog/posts/</loc>
-    <lastmod>2022-02-01T19:05:19+02:00</lastmod>
-  </url><url>
-    <loc>https://antoniosbarotsis.github.io/Blog/tags/</loc>
     <lastmod>2022-02-01T19:05:19+02:00</lastmod>
   </url><url>
     <loc>https://antoniosbarotsis.github.io/Blog/posts/zipitandshipit/</loc>
