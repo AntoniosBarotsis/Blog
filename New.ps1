@@ -8,8 +8,14 @@ New-Item -Path $path -ItemType Directory -ErrorAction Stop
 New-Item -Path "$path\images" -ItemType Directory -ErrorAction Stop
 
 $Tz = Get-Date -Format "yyyy-MM-ddTHH:mm:ss"
-$tmp = Get-TimeZone | select BaseUtcOffset
-$GmtOffset = "+{0:hh\:mm}" -f $tmp.BaseUtcOffset
+
+# This broke with daylight savings, hardcoded GMT+2
+# $tmp = Get-TimeZone | Select-Object BaseUtcOffset
+$tmp = [PSCustomObject]@{
+    BaseGmtOffset = New-TimeSpan -Hours 2
+}
+
+$GmtOffset = "+{0:hh\:mm}" -f $tmp.BaseGmtOffset
 $date = "$Tz$GmtOffset"
 
 New-Item -Path "$path\index.md" -ItemType File -ErrorAction Stop
@@ -22,8 +28,8 @@ description: ""
 date: $date
 tags: []
 categories: []
-cover:
-    image: "images/"
+# cover:
+#     image: "images/"
 draft: true
 ---
 
