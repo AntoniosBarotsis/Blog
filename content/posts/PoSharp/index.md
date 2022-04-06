@@ -51,7 +51,7 @@ class TestExample {
 If the code seems weird to you then worry not for there are [docs](https://github.com/pijuskri/Po-Sharp/blob/master/docs/Guide.md) about it.
 
 I am not sure if this is a common thing under other languages or maybe under a different name but I have been doing a lot of C# lately
-and there is this concept of "fluent" syntax which essentially is code that is very intuitive and easy to read, almost like reading plane
+and there is this concept of "fluent" syntax which essentially is code that is very intuitive and easy to read, almost like reading plain
 English. I was heavily inspired by [Fluent Assertions](https://fluentassertions.com/introduction) and I want to add/change some stuff on the
 Veritas interface to make it a little more like it as I really like using it, I believe you can already see that it heavily inspired
 Veritas' design.
@@ -76,7 +76,7 @@ dev-debug friendly rather than language-user friendly for the time being so `.Wi
 they essentially look like a small stack trace.
 
 Another thing that is perhaps worth mentioning is the use of extension methods. Extension methods, in essence, add methods to a class from
-outside of this class, that sounds terribly boring until you realize how useful it is in some scenarios, in this case, it just looks a
+outside of this class. That sounds terribly boring until you realize how useful it is in some scenarios, in this case, it just looks a
 bit cleaner. Using extension methods I could ditch the old syntax of the tests that looked like this
 
 ```scala
@@ -131,7 +131,7 @@ additionally check the exit code.
 
 Executing the test snippets is terribly slow because of all the file accesses + compilation required + spawning the external WSL process.
 At the time of writing this, 7 tests executed sequentially take 5-6 seconds, this will only get worse with more tests. Since there are only
-so many tests we can afford to assign one test per thread (which seems to be the most efficient for the time being) which takes the
+so many tests as of now we can afford to assign one test per thread (which seems to be the most efficient for the time being), that takes the
 execution time down to around a second or two, this will hopefully scale much better than the sequential solution.
 
 Since a `.asm` file gets created for each test I need to make sure that they have unique names so the different threads don't cause issues.
@@ -239,7 +239,7 @@ SBT which uses Scala. Turns out the 2 have some runtime differences when it come
 be detected so I eventually made a merge request that made everything work through Gradle which took a bit of fiddling around until
 everything started working again but at least the classloaders were not complaining anymore.
 
-Another issue I had was getting the pipeline to work on an Ubuntu image which I seemed to also have some classloader issues
+Another issue I had was getting the pipeline to work on an Ubuntu image which seemed to also have some classloader issues
 because the test methods could not get invoked. In case anyone is willing to take a look and potentially fix it, here's the
 [pipeline run](https://github.com/AntoniosBarotsis/Po-Sharp/runs/5428580842?check_suite_focus=true) and the 
 [pipeline yml file](https://github.com/AntoniosBarotsis/Po-Sharp/blob/152fbbdeb5b570024a4210e2563f3295459ef9cf/.github/workflows/workflow.yml).
@@ -248,7 +248,8 @@ Other than that small hiccup, the rest was fairly standard stuff.
 
 I want the pipeline to run on master pushes and on pull requests. The job should run on a windows image, I checkout to the repo and use
 [this](https://github.com/Vampire/setup-wsl) action to set up WSL, Gradle has a short post about setting up a Gradle build workflow
-[here] which I used for the setup and finally I install any WSL dependencies I need and run the Gradle task for the tests
+[here](https://github.com/marketplace/actions/gradle-build-action) which I used for the setup and finally I install any WSL 
+dependencies I need and run the Gradle task for the tests
 
 
 ```yml
@@ -319,7 +320,7 @@ Of course, this is what I can come up with now, more stuff will probably appear 
 All in all, it has been really cool and interesting to work on this. It was really interesting to dive into reflection, it really
 is fascinating to me how you can interact with a project's source code through ... more source code. It also gives you a better
 understanding of how these frameworks function which is great. Multi-threading was another thing I enjoyed getting into, I recently
-developed an interest to parallel programming and this is one of the ways I pursued that interest. It's also nice knowing your code
-helps someone and makes their lives easier but also more boring because who likes writing tests am I right.
+developed an interest to parallel programming and this is one of the ways I pursued that interest. It's nice knowing your code
+helps someone and makes their lives easier but also more boring because who likes writing tests am I right?
 
 Really interested in seeing where this will go from now, till next time!
