@@ -22,7 +22,12 @@ markup:
         renderer:
              unsafe: true
 
-
+security:
+  funcs:
+    getenv:
+      - ^HUGO_
+      - ^WC_
+      - ^BLOGDOWN
 
 params:
     assets:
