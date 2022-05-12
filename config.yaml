@@ -45,6 +45,7 @@ params:
     ShowPostNavLinks: true
     ShowBreadCrumbs: true
     ShowCodeCopyButtons: true
+    ShowFullTextinRSS: true
     ShowToc: true
     comments: true
     images: ["papermod-cover.png"]
@@ -64,6 +65,8 @@ params:
           url: "https://twitter.com/Tony_Barotsis"
         - name: linkedin
           url: "https://www.linkedin.com/in/antonios-barotsis-5a26a0199/"
+        - name: "rss"
+          url: "https://antoniosbarotsis.github.io/Blog/index.xml"
         # - name: KoFi
         #   url: "https://ko-fi.com/adityatelange"
         # - name: RsS
@@ -83,35 +86,6 @@ params:
         minMatchCharLength: 0
         keys: ["title", "permalink", "summary", "content"]
 
-    # label:
-    #     text: "Home"
-    #     icon: icon.png
-    #     iconHeight: 35
-
-    # analytics:
-    #     google:
-    #         SiteVerificationTag: "XYZabc"
-
-    # assets:
-    #     favicon: "<link / abs url>"
-    #     favicon16x16: "<link / abs url>"
-    #     favicon32x32: "<link / abs url>"
-    #     apple_touch_icon: "<link / abs url>"
-    #     safari_pinned_tab: "<link / abs url>"
-
-    # cover:
-    #     hidden: true # hide everywhere but not in structured data
-    #     hiddenInList: true # hide on list pages and home
-    #     hiddenInSingle: true # hide on single page
-
-    # fuseOpts:
-    #     isCaseSensitive: false
-    #     shouldSort: true
-    #     location: 0
-    #     distance: 1000
-    #     threshold: 0.4
-    #     minMatchCharLength: 0
-    #     keys: ["title", "permalink", "summary", "content"]
 menu:
     main:
         - identifier: search
