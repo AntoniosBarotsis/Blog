@@ -10,7 +10,179 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 29 Oct 2021 16:12:35 +0200</lastBuildDate><atom:link href="https://antoniosbarotsis.github.io/Blog/categories/csharp/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 29 Jun 2022 18:16:47 +0200</lastBuildDate><atom:link href="https://antoniosbarotsis.github.io/Blog/categories/csharp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Simple JWT</title>
+      <link>https://antoniosbarotsis.github.io/Blog/posts/simplejwt/</link>
+      <pubDate>Wed, 29 Jun 2022 18:16:47 +0200</pubDate>
+      
+      <guid>https://antoniosbarotsis.github.io/Blog/posts/simplejwt/</guid>
+      <description>A simple JWT authorization scheme</description>
+      <content:encoded><![CDATA[<h1 id="simple-jwt-authorization-with-net">Simple JWT Authorization with .NET</h1>
+<p>Recently I have been working on a side project that needed a very simple toy-like auth
+scheme to be implemented. The last few times I implemented JWTs in .NET it was for a full-blown
+application which means that I made use of things like <code>IdentityModel</code> and <code>UserManager</code>,
+if you want a look at how I made that work you could take a look at the source code of
+<a href="https://github.com/AntoniosBarotsis/Demeter">Demeter</a>.</p>
+<p>In this case, I did not need <em>Authentication</em>, just <em>Authorization</em>. The two are defined as followed
+in the <a href="https://docs.microsoft.com/en-us/azure/active-directory/develop/authentication-vs-authorization">MS Docs</a>.</p>
+<blockquote>
+<p>Authentication is the process of proving that you are who you say you are. [&hellip;]
+Authorization is the act of granting an authenticated party permission to do something.
+It specifies what data you&rsquo;re allowed to access and what you can do with that data.</p>
+</blockquote>
+<p>For my use case, simulating a credential check is enough; I don&rsquo;t need to store and check
+password salted hashes to make sure a user is indeed who he is supposed to be as this is a toy app
+that I am working on with supposedly just one user. All this means that if you are looking for a
+tutorial on how to implement Auth for your new project, this is probably not the article for you,
+it is just a less verbose way of dealing with JWT generation and validation that works for me.</p>
+<p>That being said, let&rsquo;s get started.</p>
+<h2 id="setup">Setup</h2>
+<p>The only package I used is <a href="https://www.nuget.org/packages/JWT.Extensions.AspNetCore">JWT.Extensions</a>.
+I created 3 classes that make everything work:</p>
+<ul>
+<li><code>JwtConfig</code>: Holds the JWT secret which is provided in the <code>application.json</code> file. Could also be
+used for other pieces of configuration such as the token lifespan</li>
+<li><code>Secured</code>: An attribute that when attached to a controller or a specific endpoint requires a
+valid token to be provided in the request header</li>
+<li><code>TokenService</code>: A very simple interface to the <code>JWT.Extensions</code> API that helps us create and
+validate tokens.</li>
+</ul>
+<h2 id="the-jwtconfig">The <code>JwtConfig</code></h2>
+<p>Let&rsquo;s start with the config class first. The idea with this is pretty simple; have a section in our
+<code>appsettings.json</code> file where we define crucial security information in plain text, what could
+possibly go wrong! On a more serious note, while this is fine for developing, you should definitely
+use something like <a href="https://docs.microsoft.com/en-us/aspnet/core/security/app-secrets?view=aspnetcore-6.0&amp;tabs=windows">app secrets</a>
+or plain old environment variables for this. Once again, my app is not supposed to be secure so I don&rsquo;t
+care.</p>
+<p>The class itself is pretty simple in my case:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">public</span> record JwtConfig(<span style="color:#66d9ef">string</span> Secret = <span style="color:#e6db74">&#34;fallback-secret&#34;</span>);
+</code></pre></div><p>And here&rsquo;s my settings file</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#f92672">&#34;JwtConfig&#34;</span>: {
+    <span style="color:#f92672">&#34;secret&#34;</span>: <span style="color:#e6db74">&#34;jwt-secret&#34;</span>
+  },
+  <span style="color:#f92672">&#34;Logging&#34;</span>: {
+    <span style="color:#960050;background-color:#1e0010">...</span>
+  },
+  <span style="color:#960050;background-color:#1e0010">...</span>
+}
+</code></pre></div><p>Now that that&rsquo;s out of the way, let&rsquo;s make sure we use the secret from our settings file in the
+<code>JwtConfig</code> instances.</p>
+<p>I made it so the class is registered as a singleton in the DI container, the binding itself is
+pretty simple:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#75715e">// Program.cs
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> jwtConfig = <span style="color:#66d9ef">new</span> JwtConfig();
+builder.Configuration.Bind(nameof(jwtConfig), jwtConfig);
+builder.Services.AddSingleton(jwtConfig);
+</code></pre></div><p>I used <code>nameof</code> just because I wanted to be sure that the config file&rsquo;s section is titled the
+exact same as the class itself to avoid confusion, this is just a string so swapping it out for
+<code>&quot;JwtConfig&quot;</code> would change nothing.</p>
+<p>Since we are here, let&rsquo;s also configure some basic settings for our tokens</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#75715e">// Program.cs
+</span><span style="color:#75715e"></span>builder.Services.AddAuthentication(options =&gt;
+    {
+        options.DefaultChallengeScheme = JwtAuthenticationDefaults.AuthenticationScheme;
+        options.DefaultAuthenticateScheme = JwtAuthenticationDefaults.AuthenticationScheme;
+    })
+    .AddJwt(options =&gt; { options.Keys = <span style="color:#66d9ef">new</span>[] { jwtConfig.Secret }; });
+
+builder.Services.AddSingleton&lt;IAlgorithmFactory&gt;(<span style="color:#66d9ef">new</span> HMACSHAAlgorithmFactory());
+</code></pre></div><p>This is taken straight from their <a href="https://github.com/jwt-dotnet/jwt#register-authentication-handler-to-validate-jwt">documentation</a>
+so I won&rsquo;t be explaining it too much, just know that we are telling the package to use
+the key we just defined and we are also using the <code>HMACSHA</code> algorithm.</p>
+<p>It is worth noting that this throws us a warning as this is no longer considered secure
+and it is recommended to &ldquo;consider switching to RSASSA or ECDSA&rdquo;. Once again, for the purposes
+of my use case, this is not a concern.</p>
+<h2 id="the-tokenservice">The <code>TokenService</code></h2>
+<p>This is where most of the interesting stuff happens. Let&rsquo;s first create the class, get our
+<code>jwtConfig</code> secret and assign it to a <code>JwtBuilder</code> instance which we&rsquo;ll use later.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TokenService</span>
+{
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> JwtBuilder <span style="color:#ae81ff">_</span>jwtBuilder;
+
+    <span style="color:#66d9ef">public</span> TokenService(JwtConfig jwtConfig)
+    {
+        <span style="color:#ae81ff">_</span>jwtBuilder = JwtBuilder.Create()
+            .WithAlgorithm(<span style="color:#66d9ef">new</span> HMACSHA512Algorithm())
+            .WithSecret(jwtConfig.Secret);
+    }
+}
+</code></pre></div><p>Creating the token itself is also pretty much copy-pasted from their
+<a href="https://github.com/jwt-dotnet/jwt#register-authentication-handler-to-validate-jwt">docs</a>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">string</span> Create(<span style="color:#66d9ef">string</span> username)
+{
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">_</span>jwtBuilder
+        .AddClaim(<span style="color:#e6db74">&#34;exp&#34;</span>, DateTimeOffset.UtcNow.AddHours(<span style="color:#ae81ff">1</span>).ToUnixTimeSeconds())
+        .AddClaim(<span style="color:#e6db74">&#34;username&#34;</span>, username)
+        .Encode();
+}
+</code></pre></div><p>I only use the expiration date and username for claims.</p>
+<p>Lastly, verification.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">bool</span> Verify(<span style="color:#66d9ef">string</span> token)
+{
+    <span style="color:#66d9ef">try</span>
+    {
+        <span style="color:#66d9ef">var</span> json = <span style="color:#ae81ff">_</span>jwtBuilder
+            .MustVerifySignature()
+            .Decode(token);
+
+        <span style="color:#66d9ef">return</span> json <span style="color:#66d9ef">is</span> not <span style="color:#66d9ef">null</span>;
+    }
+    <span style="color:#66d9ef">catch</span> (Exception)
+    {
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>;
+    }
+}
+</code></pre></div><p>I only need a true or false return as I don&rsquo;t care why the token was not valid. In case the token is a
+valid JWT but it is expired, <code>json</code> will be null. If on the other hand, the signature is invalid,
+then an exception will be thrown for whatever reason.</p>
+<h2 id="the-secured-attribute">The <code>Secured</code> Attribute</h2>
+<p>As I mentioned earlier, all this is glued together by the use of attributes. For this to work,
+we need to implement the <code>IAuthorizationFilter</code> interface. This will make it so our code will be
+executed to determine whether a request should be authorized or not.</p>
+<p>The code for this is also simple but let&rsquo;s go over it step by step</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#a6e22e">[AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Secured</span> : Attribute, IAuthorizationFilter
+{
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> OnAuthorization(AuthorizationFilterContext context)
+    {
+        <span style="color:#66d9ef">var</span> jwtConfig = context.HttpContext.RequestServices.GetService&lt;JwtConfig&gt;();
+        <span style="color:#66d9ef">if</span> (jwtConfig == <span style="color:#66d9ef">null</span>) <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> ArgumentNullException();
+
+        <span style="color:#66d9ef">var</span> tokenService = <span style="color:#66d9ef">new</span> TokenService(jwtConfig);
+        <span style="color:#66d9ef">var</span> token = context
+            .HttpContext
+            .Request
+            .Headers[<span style="color:#e6db74">&#34;Authorization&#34;</span>]
+            .ToString()
+            .Replace(<span style="color:#e6db74">&#34;Bearer &#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>);
+
+        <span style="color:#66d9ef">if</span> (!tokenService.Verify(token))
+            context.Result = <span style="color:#66d9ef">new</span> JsonResult(<span style="color:#66d9ef">new</span> { message = <span style="color:#e6db74">&#34;Unauthorized&#34;</span> })
+                { StatusCode = StatusCodes.Status401Unauthorized };
+    }
+}
+</code></pre></div><p>As I mentioned earlier, I want this to apply to both endpoints and entire controllers, hence
+the first line. In order to implement <code>IAuthorizationFilter</code>, we need to define the <code>OnAuthorization</code>
+method. We use the <code>IServiceProdiver</code> to retrieve our <code>JwtConfig</code> instance and make sure it is not null.
+We then instantiate <code>TokenService</code> and retrieve the token from the request header. Finally, we make sure
+to throw an Unauthorized message to the user if the token is invalid, otherwise, the request pipeline
+will proceed as expected.</p>
+<p>And that&rsquo;s it! We can now add our newly created attribute to whichever controller or endpoint we want
+and it will be locked behind a valid JWT requirement.</p>
+<h2 id="closing">Closing</h2>
+<p>This pretty much concludes the article! As I mentioned earlier, this is a very specific and lacking
+implementation, the main point of the article was to showcase how you could use your own attributes
+to simplify the process which to me feels simpler (and less verbose) compared to some of my previous
+implementations.</p>
+<p>This is probably the most boring article I&rsquo;ve written so far but I promise you that the project I am
+going to use this for is interesting. It&rsquo;s also a lot harder than anything I&rsquo;ve tried before so don&rsquo;t
+expect that the be out anytime soon.</p>
+<p>Till next time :)</p>
+]]></content:encoded>
+    </item>
+    
     <item>
       <title>Testing an ASP .NET Core project</title>
       <link>https://antoniosbarotsis.github.io/Blog/posts/aspnet_testing/</link>

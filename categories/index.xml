@@ -10,7 +10,17 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 06 Mar 2022 22:29:48 +0100</lastBuildDate><atom:link href="https://antoniosbarotsis.github.io/Blog/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 29 Jun 2022 18:16:47 +0200</lastBuildDate><atom:link href="https://antoniosbarotsis.github.io/Blog/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Csharp</title>
+      <link>https://antoniosbarotsis.github.io/Blog/categories/csharp/</link>
+      <pubDate>Wed, 29 Jun 2022 18:16:47 +0200</pubDate>
+      
+      <guid>https://antoniosbarotsis.github.io/Blog/categories/csharp/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
+    </item>
+    
     <item>
       <title>Veritas</title>
       <link>https://antoniosbarotsis.github.io/Blog/categories/veritas/</link>
@@ -37,16 +47,6 @@
       <pubDate>Fri, 24 Dec 2021 08:59:03 +0200</pubDate>
       
       <guid>https://antoniosbarotsis.github.io/Blog/categories/project-demeter/</guid>
-      <description></description>
-      <content:encoded><![CDATA[]]></content:encoded>
-    </item>
-    
-    <item>
-      <title>Csharp</title>
-      <link>https://antoniosbarotsis.github.io/Blog/categories/csharp/</link>
-      <pubDate>Fri, 29 Oct 2021 16:12:35 +0200</pubDate>
-      
-      <guid>https://antoniosbarotsis.github.io/Blog/categories/csharp/</guid>
       <description></description>
       <content:encoded><![CDATA[]]></content:encoded>
     </item>
