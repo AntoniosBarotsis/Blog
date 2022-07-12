@@ -3,8 +3,8 @@ author: "Antonios Barotsis"
 title: "Veritas"
 description: "My attempt at a testing framework"
 date: 2022-03-06T22:29:48+01:00
-tags: ["Scala", "Github Actions", "CI"]
-categories: ["Veritas"]
+tags: ["Scala", "Github Actions", "CI", "Testing", "Reflection", "Parallel Programming"]
+categories: ["Veritas", "Scala"]
 cover:
     image: "images/logo.png"
 draft: false
