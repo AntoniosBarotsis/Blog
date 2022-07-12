@@ -36,7 +36,7 @@ params:
     description: "Welcome to my programming Blog!"
     author: Antonios Barotsis
     # author: ["Me", "You"] # multiple authors
-
+    disableThemeToggle: true
     defaultTheme: dark
     ShowShareButtons: true
     ShowReadingTime: true
